@@ -1,0 +1,13 @@
+{
+    "name": "root/lyon_hack_102016_nicolas_laurie",
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    },
+    "authors": [
+        {
+            "name": "ngdo-pro",
+            "email": "ngdo27@gmail.com"
+        }
+    ],
+    "require": {}
+}
