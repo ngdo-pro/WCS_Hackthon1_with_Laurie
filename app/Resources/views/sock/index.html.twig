@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} Vive les chaussettes !{% endblock %}
+{% block body %}
+    <h1>Sock list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imgurl</th>
+                <th>Sockvotecount</th>
+                <th>Personvotecount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sock in socks %}
+            <tr>
+                <td><a href="{{ path('sock_show', { 'id': sock.id }) }}">{{ sock.id }}</a></td>
+                <td><img src="{{ sock.imgUrl }}"></td>
+                <td>{{ sock.sockVoteCount }}</td>
+                <td>{{ sock.personVoteCount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sock_show', { 'id': sock.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sock_edit', { 'id': sock.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sock_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
