@@ -55,7 +55,7 @@ class SockController extends Controller
     /**
      * Creates a new Sock entity.
      *
-     * @Route("/new", name="sock_new")
+     * @Route("/backoffice/new", name="sock_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
