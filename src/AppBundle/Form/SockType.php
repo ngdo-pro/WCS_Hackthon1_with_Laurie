@@ -18,7 +18,7 @@ class SockType extends AbstractType
         $builder
             ->add('firstName')
             ->add('lastName')
-            ->add('imgUrl', FileType::class, array('label' => 'Photo (jpg file'))
+            ->add('imgUrl', FileType::class, array('label' => 'Photo (jpg file)', 'data_class' => null))
             ->add('hasVoted')
             ->add('sockVoteCount')
             ->add('personVoteCount')

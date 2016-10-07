@@ -3,7 +3,7 @@ header{
 }
 
 table{
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 table, th, td{
@@ -33,3 +33,6 @@ ul{
     list-style: none;
 }
 
+.edit{
+    margin: auto;
+}
