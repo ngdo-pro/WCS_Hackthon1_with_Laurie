@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% if person is defined %}
+        {% if person.hasVoted is same as(false) %}
+            Pour voter c'est par <a href="{{ path('sock_vote', { 'id': person.id }) }}">ici.</a>
+        {% else %}
+            Vous avez déjà participé. Merci de votre participation. <a href="{{  path('sock_index') }}">Retour à la liste d'images.</a>
+        {% endif %}
+    {% else %}
+        Vous n'êtes pas enregistré(e) <a href="{{ path('sock_index') }}">Retour à la liste d'images.</a>
+    {% endif %}
+
+{% endblock %}

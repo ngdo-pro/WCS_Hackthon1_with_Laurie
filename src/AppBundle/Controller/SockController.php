@@ -38,6 +38,24 @@ class SockController extends Controller
     /**
      * Lists all Sock entities.
      *
+     * @Route("/vote/{id}", name="sock_vote")
+     * @Method("GET")
+     */
+    public function voteAction($id)
+    {
+        $id = (int)$id;
+        $em = $this->getDoctrine()->getManager();
+        $person = $em->getRepository('AppBundle:Sock')->findOneBy(array('id' => $id));
+        $socks = $em->getRepository('AppBundle:Sock')->findAll();
+        return $this->render('sock/index.html.twig', array(
+            'socks' => $socks,
+            'person' => $person
+        ));
+    }
+
+    /**
+     * Lists all Sock entities.
+     *
      * @Route("/backoffice", name="sock_backoffice")
      * @Method("GET")
      */
@@ -51,6 +69,34 @@ class SockController extends Controller
             'socks' => $socks,
         ));
     }
+
+    /**
+     * @Route("/login/", name="sock_login")
+     * @Method("GET")
+     */
+    public function loginAction(Request $request)
+    {
+        $firstName = $request->query->get('firstName');
+        $lastName = $request->query->get('lastName');
+        $em = $this->getDoctrine()->getManager();
+        if($em->getRepository('AppBundle:Sock')->findOneBy(
+            array('firstName' => $firstName, 'lastName' => $lastName))){
+            $person = $em->getRepository('AppBundle:Sock')->findOneBy(
+                array('firstName' => $firstName, 'lastName' => $lastName)
+            );
+        }else{
+            $person = NULL;
+        }
+        $socks = $em->getRepository('AppBundle:Sock')->findAll();
+        if($person != NULL){
+            $array = array('socks' => $socks, 'person' => $person);
+        }else{
+            $array = array('socks' => $socks);
+        }
+        return $this->render('sock/login.html.twig', $array);
+    }
+
+
 
     /**
      * Creates a new Sock entity.
