@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,7 +18,7 @@ class SockType extends AbstractType
         $builder
             ->add('firstName')
             ->add('lastName')
-            ->add('imgUrl')
+            ->add('imgUrl', FileType::class, array('label' => 'Photo (jpg file'))
             ->add('hasVoted')
             ->add('sockVoteCount')
             ->add('personVoteCount')

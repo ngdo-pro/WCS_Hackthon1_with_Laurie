@@ -2,12 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Sock;
 use AppBundle\Form\SockType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Sock controller.
@@ -34,6 +36,23 @@ class SockController extends Controller
     }
 
     /**
+     * Lists all Sock entities.
+     *
+     * @Route("/backoffice", name="sock_backoffice")
+     * @Method("GET")
+     */
+    public function boAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $socks = $em->getRepository('AppBundle:Sock')->findAll();
+
+        return $this->render('sock/backoffice.html.twig', array(
+            'socks' => $socks,
+        ));
+    }
+
+    /**
      * Creates a new Sock entity.
      *
      * @Route("/new", name="sock_new")
@@ -46,6 +65,14 @@ class SockController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $sock->getImgUrl();
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move(
+                $this->getParameter('photos_directory'),
+                $fileName
+            );
+            $sock->setImgUrl($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($sock);
             $em->flush();
