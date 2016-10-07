@@ -3,14 +3,11 @@
 h1 {
     font-family: 'Roboto', sans-serif;
     font-size:30px;
-    text-align: center;
-
 }
 
 h2 {
     font-family: 'PT Sans', sans-serif;
     font-size:18px;
-    text-align: center;
 }
 
 p{
@@ -19,18 +16,12 @@ p{
 }
 
 .btn-vote {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
     font-size: 20px;
     font-style: bold;
 }
 
 #list-cards {
-    padding-top:20px;
-    padding-bottom: 20px;
-    padding-left:20px;
-    padding-right:20px;
+    padding: 20px;
 }
 
