@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Sock
@@ -39,6 +40,7 @@ class Sock
      * @var string
      *
      * @ORM\Column(name="imgUrl", type="string", length=255)
+     * @Assert\Image()
      */
     private $imgUrl;
 
