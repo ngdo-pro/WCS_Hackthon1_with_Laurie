@@ -2,7 +2,7 @@
 {% block title %}{{ parent() }} Votez !  !{% endblock %}
 {% block body %}
 
-    <div class="container-fluid">
+    <section class="container-fluid">
 
         <!-- H1 & H2 -->
         <div class="container-fluid">
@@ -45,25 +45,28 @@
         </div>
 
         <!-- Cards with photos -->
-
         <div class="container-fluid">
             <div class="row" id="list-cards">
             {% for sock in socks %}
-                <div class="col-md-4 col-xs-12">
-                    <img src="{{ asset('uploads/photos/' ~ sock.imgUrl) }}" class="img-responsive img-rounded">
+                <div class="col-md-3 col-xs-12 col-sm-4">
+                    <img src="{{ asset('uploads/photos/' ~ sock.imgUrl) }}" class="img-responsive" width="200px" height="200px" />
                     <div class="row elements-photos">
                         <div class="col-xs-6">
                             <p class="text-center">{{ sock.sockVoteCount }}</p>
                         </div>
                         <div class="col-xs-6">
-                            <input class="btn btn-default center-block" type="submit" value="Je vote">
+                            <button type="button" class="btn btn-default" aria-label="Center Align">
+                                <span class="glyphicon glyphicon glyphicon-heart glyphicon-center-align" aria-hidden="true"></span>
+                            </button>
                         </div>
                     </div>
                 </div>
             {% endfor %}
+                
             </div>
         </div>
 
     </div>
 
 {% endblock %}
+

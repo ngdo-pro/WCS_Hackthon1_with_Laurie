@@ -1,5 +1,3 @@
-
-
 h1 {
     font-family: 'Roboto', sans-serif;
     font-size:30px;
@@ -26,11 +24,18 @@ p{
 }
 
 #list-cards {
-    padding: 20px;
-    margin: 10px;
+    padding: 20px,30px;
+    margin: 20px;
 }
 
 .titles-section{
     margin-top: 30px;
 }
 
+.elements-photos{
+    margin-top: 30px;
+}
+
+.glyphicon:hover {
+    background-color: grey;
+}
