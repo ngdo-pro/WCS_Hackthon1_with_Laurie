@@ -10,7 +10,7 @@
             <div class="row titles-section">
                 <div class="col-md-12">
                     <h1 class="text-center">Votez pour les plus belles chaussettes de la soirée !</h1>
-                    <h2 class="text-center">Cliquez sur le bouton ci-dessous pour enregistrer votre vote en renseignant vos nom et prénom.<br/>Les votes sont limités à 3 par personne.</h2>
+                    <h2 class="text-center">Cliquez sur le bouton ci-dessous pour enregistrer votre vote en renseignant vos nom et prénom.<br/>Vous pouvez choisir jusqu'à 3 paires par personne.</h2>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="row" id="list-cards">
             {% for sock in socks %}
                      <div class="col-md-3 col-xs-12 col-sm-4">
-                    <img src="{{ asset('uploads/photos/' ~ sock.imgUrl) }}" class="img-responsive img-rounded" width="150px", height="150px"/>
+                    <img src="{{ asset('uploads/photos/' ~ sock.imgUrl) }}" class="img-responsive img-rounded" width="200px", height="200px"/>
                     <div class="row elements-photos">
                         <div class="col-xs-6">
                             <p class="text-center">{{ sock.sockVoteCount }}</p>
