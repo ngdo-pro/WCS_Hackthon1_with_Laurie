@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} Backoffice{% endblock %}
+{% block body %}
+
+    <header>
+        <h1>Backoffice</h1>
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Chaussettes</th>
+                <th>A voté</th>
+                <th>Votes pour les chaussettes</th>
+                <th>Votes restant</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sock in socks %}
+            <tr>
+                <td><a href="{{ path('sock_show', { 'id': sock.id }) }}">{{ sock.id }}</a></td>
+                <td>{{ sock.firstName }}</td>
+                <td>{{ sock.lastName }}</td>
+                <td><img src="{{ asset('uploads/photos/' ~ sock.imgUrl) }}" width="200px" height="auto"></td>
+                <td>{{ sock.hasVoted }}</td>
+                <td>{{ sock.sockVoteCount }}</td>
+                <td>{{ sock.personVoteCount }}</td>
+                <td>{{ sock.email }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sock_show', { 'id': sock.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sock_edit', { 'id': sock.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sock_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
