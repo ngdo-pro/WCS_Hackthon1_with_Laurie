@@ -1,43 +1,72 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ parent() }} Vive les chaussettes !{% endblock %}
+{% block title %}{{ parent() }} Votez !  !{% endblock %}
 {% block body %}
-    <h1>Sock list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Imgurl</th>
-                <th>Sockvotecount</th>
-                <th>Personvotecount</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for sock in socks %}
-            <tr>
-                <td><a href="{{ path('sock_show', { 'id': sock.id }) }}">{{ sock.id }}</a></td>
-                <td><img src="{{ sock.imgUrl }}"></td>
-                <td>{{ sock.sockVoteCount }}</td>
-                <td>{{ sock.personVoteCount }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('sock_show', { 'id': sock.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('sock_edit', { 'id': sock.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container-fluid">
+        //H1_and_text
+        <div class="container-fluid">
 
-    <ul>
-        <li>
-            <a href="{{ path('sock_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Votez pour les plus belles chaussettes de la soirée !</h1>
+                    <h2>cliquez sur le bouton ci-dessous pour enregistrer votre vote en renseignant vos nom et prénom. <br/> Seulement 3 votes par personne.</h2>
+                </div>
+            </div>
+        </div>
+
+        //Button_vote
+        <div class="container">
+            <div class="row button_vote">
+                <div class="col-md-12">
+                    <center><a class="btn btn-vote btn-warning" href="#" role="button">Votez ici ! </a></center>
+                </div>
+            </div>
+        </div>
+
+        //cards
+        <div class="container-fluid">
+            <div class="row" id="list-cards">
+                <div class="col-sm-4">
+                    <img src="http://cdn-gulli.ladmedia.fr/var/jeunesse/storage/images/tiji/tout-tiji/ti-heros/petite-princesse/personnages/personnages/petite-princesse/7771938-1-fre-FR/Petite-Princesse.jpg" class="img-responsive img-rounded">
+                    <div class="row elements-photos">
+                        <div class="col-xs-6">
+                            <p class="text-center">Nombre de votes</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="btn btn-default center-block" type="submit" value="Je vote">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-offset-1 col-sm-4 col-offset-2 col-md-2">
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
