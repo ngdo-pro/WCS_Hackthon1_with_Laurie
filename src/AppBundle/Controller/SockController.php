@@ -55,7 +55,7 @@ class SockController extends Controller
     /**
      * Creates a new Sock entity.
      *
-     * @Route("/new", name="sock_new")
+     * @Route("/backoffice/new", name="sock_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -89,7 +89,7 @@ class SockController extends Controller
     /**
      * Finds and displays a Sock entity.
      *
-     * @Route("/{id}", name="sock_show")
+     * @Route("/backoffice/{id}", name="sock_show")
      * @Method("GET")
      */
     public function showAction(Sock $sock)
@@ -105,7 +105,7 @@ class SockController extends Controller
     /**
      * Displays a form to edit an existing Sock entity.
      *
-     * @Route("/{id}/edit", name="sock_edit")
+     * @Route("/backoffice/{id}/edit", name="sock_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Sock $sock)
@@ -146,7 +146,7 @@ class SockController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('sock_index');
+        return $this->redirectToRoute('sock_backoffice');
     }
 
     /**
