@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{{ parent() }} <link rel="stylesheet" href="{{ asset('css/bo.css') }}" /> {% endblock %}
+{% block body %}
+    <header>
+        <h1>Sock</h1>
+    </header>
+    <div class="col-md-4 col-md-offset-4 text-center">
+        <a href="{{ path('sock_backoffice') }}" class="btn btn-success">Back to the list</a>
+        <a href="{{ path('sock_edit', { 'id': sock.id }) }}" class="btn btn-warning">Edit</a>
+    </div>
+    <table class="col-md-4 col-md-offset-4 col-xs-12">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sock.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ sock.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ sock.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Imgurl</th>
+                <td>{{ sock.imgUrl }}</td>
+            </tr>
+            <tr>
+                <th>Hasvoted</th>
+                <td>{% if sock.hasVoted %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sockvotecount</th>
+                <td>{{ sock.sockVoteCount }}</td>
+            </tr>
+            <tr>
+                <th>Personvotecount</th>
+                <td>{{ sock.personVoteCount }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ sock.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="col-xs-12 text-center">
+    {{ form_start(delete_form) }}
+    <input class="btn btn-danger" type="submit" value="Delete">
+    {{ form_end(delete_form) }}
+</div>
+
+{% endblock %}

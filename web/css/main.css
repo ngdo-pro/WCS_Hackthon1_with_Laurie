@@ -1,0 +1,58 @@
+header{
+    background: url(../img/couv-socks.jpg);
+    background-size: cover;
+    height: 45vh;
+    position: relative;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size:30px;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'PT Sans', sans-serif;
+    font-size:18px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+p{
+    font-family: 'PT Sans', sans-serif;
+    font-size:16px;
+}
+
+.btn-vote {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight:bold;
+}
+
+#list-cards {
+    padding: 20px 30px;
+    margin: 20px;
+}
+
+.titles-section{
+    margin-top: 30px;
+}
+
+.elements-photos{
+    margin-top: 30px;
+}
+
+.glyphicon:hover {
+    background-color: grey;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-fluid {
+    padding: 0;
+}
