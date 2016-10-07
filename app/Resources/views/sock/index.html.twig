@@ -3,31 +3,48 @@
 {% block body %}
 
     <div class="container-fluid">
-        //photo header
-        <div class="container-fluid">
 
-        </div>
-
-        //H1_and_text
+        <!-- H1 & H2 -->
         <div class="container-fluid">
-            <div class="row">
+            <div class="row titles-section">
                 <div class="col-md-12">
                     <h1 class="text-center">Votez pour les plus belles chaussettes de la soirée !</h1>
-                    <h2 class="text-center">cliquez sur le bouton ci-dessous pour enregistrer votre vote en renseignant vos nom et prénom. <br/> Seulement 3 votes par personne.</h2>
+                    <h2 class="text-center">Cliquez sur le bouton ci-dessous pour enregistrer votre vote en renseignant vos nom et prénom.<br/>Seulement 3 votes par personne.</h2>
                 </div>
             </div>
         </div>
 
-        //Button_vote
+        <!-- Button to vote -->
         <div class="container">
             <div class="row button_vote">
                 <div class="col-md-12">
-                    <center><a class="btn btn-vote btn-warning" href="#" role="button">Votez ici ! </a></center>
+                    <center><a class="btn btn-vote btn-warning" data-toggle="modal" data-target="#myModal" href="#" role="button">Votez ici ! </a></center>
                 </div>
             </div>
         </div>
 
-        //cards
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <p>Merci de renseigner vos nom et prénom pour pouvoir voter.<br/>Ces informations ne seront pas utilisées à des fins commerciales.</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="firstname" placeholder="Votre prénom">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="lastname" placeholder="Votre nom">
+                            </div>
+                            <button type="submit" class="btn btn-default">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards with photos -->
         <div class="container-fluid">
             <div class="row" id="list-cards">
                 <div class="col-sm-4">
