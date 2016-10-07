@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ parent() }} Backoffice{% endblock %}
+{% block stylesheets %}{{ parent() }} <link rel="stylesheet" href="{{ asset('css/bo.css') }}" /> {% endblock %}
 {% block body %}
 
     <header>
         <h1>Backoffice</h1>
     </header>
+    <div class="col-md-4 col-md-offset-4 text-center">
+        <a href="{{ path('sock_new') }}" class="btn btn-success">Entrer une nouvelle paire de chaussettes</a>
+    </div>
 
-    <table>
+    <table class="col-md-8 col-md-offset-2 col-xs-12">
         <thead>
             <tr>
                 <th>Id</th>
@@ -32,23 +36,13 @@
                 <td>{{ sock.personVoteCount }}</td>
                 <td>{{ sock.email }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('sock_show', { 'id': sock.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('sock_edit', { 'id': sock.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-info" href="{{ path('sock_show', { 'id': sock.id }) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('sock_edit', { 'id': sock.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('sock_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+
 {% endblock %}
