@@ -8,6 +8,7 @@ header{
 h1 {
     font-family: 'Roboto', sans-serif;
     font-size:30px;
+    font-weight: bold;
 }
 
 h2 {
@@ -27,11 +28,11 @@ p{
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 20px;
-    font-style: bold;
+    font-weight:bold;
 }
 
 #list-cards {
-    padding: 20px,30px;
+    padding: 20px 30px;
     margin: 20px;
 }
 
